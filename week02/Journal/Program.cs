@@ -1,8 +1,9 @@
 using System;
 
 /*
-EXCEEDING REQUIREMENTS:
-- Each journal entry tracks and displays word count.
+Exceeding requirements: 
+Each journal entry tracks and displays word count.
+Used a dedicated PromptGenerator class for better abstraction.
 */
 
 class Program
@@ -10,7 +11,7 @@ class Program
     static void Main(string[] args)
     {
         Journal journal = new Journal();
-        PromptGenerator promptGenerator = new PromptGenerator();
+        PromptGenerator promptGenerator = new PromptGenerator(); // Exceeding requirement
 
         bool running = true;
 
