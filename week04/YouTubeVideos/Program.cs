@@ -5,40 +5,38 @@ class Program
 {
     static void Main(string[] args)
     {
-        List<Video> videos = new List<Video>();
+        Video video1 = new Video("The Wonders of Space", "Alice", 300);
+        Video video2 = new Video("Cooking 101", "Bob", 600);
+        Video video3 = new Video("C# Programming Basics", "Charlie", 450);
 
-        Video video1 = new Video("C# Basics Tutorial", "Code Academy", 600);
-        video1.AddComment(new Comment("João", "Great explanation!"));
-        video1.AddComment(new Comment("Ricardo", "Very helpful, thanks."));
-        video1.AddComment(new Comment("Luís", "Clear and easy to follow."));
-        videos.Add(video1);
+        video1.AddComment(new Comment("João", "Amazing video!"));
+        video1.AddComment(new Comment("Ricardo", "Loved the visuals."));
+        video1.AddComment(new Comment("Luís", "Great explanation!"));
 
-        Video video2 = new Video("Understanding Abstraction", "Dev Simplified", 480);
-        video2.AddComment(new Comment("Charles", "This finally makes sense."));
-        video2.AddComment(new Comment("Ethan", "Awesome examples."));
-        video2.AddComment(new Comment("Paula", "Exactly what I needed."));
-        videos.Add(video2);
+        video2.AddComment(new Comment("Charles", "Very helpful."));
+        video2.AddComment(new Comment("Ethan", "I tried this recipe, it works!"));
+        video2.AddComment(new Comment("Paula", "Yummy!"));
 
-        Video video3 = new Video("Object-Oriented Programming Explained", "Tech World", 720);
-        video3.AddComment(new Comment("Jorge", "Nice overview."));
-        video3.AddComment(new Comment("Hannah", "Loved the visuals."));
-        video3.AddComment(new Comment("Helton", "Very informative."));
-        videos.Add(video3);
+        video3.AddComment(new Comment("Jorge", "Very clear explanation."));
+        video3.AddComment(new Comment("Hannah", "Helpful for beginners."));
+        video3.AddComment(new Comment("Helton", "Thanks for sharing!"));
 
-        foreach (Video video in videos)
+        List<Video> videos = new List<Video> { video1, video2, video3 };
+
+        foreach (var video in videos)
         {
-            Console.WriteLine("Title: " + video.GetTitle());
-            Console.WriteLine("Author: " + video.GetAuthor());
-            Console.WriteLine("Length (seconds): " + video.GetLength());
-            Console.WriteLine("Number of Comments: " + video.GetNumberOfComments());
+            Console.WriteLine($"Title: {video.Title}");
+            Console.WriteLine($"Author: {video.Author}");
+            Console.WriteLine($"Length: {video.Length} seconds");
+            Console.WriteLine($"Number of Comments: {video.GetNumberOfComments()}");
             Console.WriteLine("Comments:");
 
-            foreach (Comment comment in video.GetComments())
+            foreach (var comment in video.Comments)
             {
-                Console.WriteLine($" - {comment.GetCommenterName()}: {comment.GetCommentText()}");
+                Console.WriteLine($"\t{comment.Name}: {comment.Text}");
             }
 
-            Console.WriteLine();
+            Console.WriteLine(); 
         }
     }
 }
