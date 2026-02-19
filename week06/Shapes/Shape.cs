@@ -19,7 +19,7 @@ public class Shape
         _color = color;
     }
 
-    // Virtual method to be overridden
+    
     public virtual double GetArea()
     {
         return 0;
